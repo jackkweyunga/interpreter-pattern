@@ -1,0 +1,40 @@
+<MeasurementConvertor>:
+	canvas.before:
+		Color:
+			rgba: 1, 1, 1, 1
+		Rectangle:
+			size: self.size
+			pos: self.pos
+	padding: 10
+	align: 'center'
+	orientation: 'vertical'
+	size_hint: 1, 1
+	Label:
+		text: "Measurement Convertor"
+		size_hint_y: None
+		height: 40
+		font_size: 34
+		font_weight: 'bold'
+		color: 0, 0, 0, 1
+	GridLayout:
+		rows: 2
+		size_hint_y: None
+		height: 80
+		Label:
+			text: "Enter conversion, e.g. 1 gallon to pints"
+			color: 0, 0, 0, 1
+		TextInput:
+			id: question_input
+			multiline: False
+	BoxLayout:
+		orientation: 'vertical'
+		size_hint_y: None
+		height: 80
+		Label:
+			id: response
+			text: ""
+			color: 0, 0, 0, 1
+		Button:
+			text: "Convert"
+			on_press:
+				if question_input.text != "":	root.convert(question_input.text)
